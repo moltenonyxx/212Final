@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveSetup
   pathPrefabs: {fileID: 6052338931846187940, guid: 36bd7020f77b9834b89d9714fc5ba114, type: 3}
   enemyPrefabs:
-  - {fileID: 4483068738248217357, guid: 5db52d687cbe8214ca92348d675fb178, type: 3}
+  - {fileID: 4419110937260678185, guid: 7506024a0241a004aa43614f941eb4b9, type: 3}
   enemyMoveSpeed: 5
   timeBetweenEnemySpawns: 1
-  enemySpawnVarience: 0
+  enemySpawnVarience: 1
   minSpawnTime: 0.2
