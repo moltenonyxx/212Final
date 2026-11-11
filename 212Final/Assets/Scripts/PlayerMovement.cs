@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -20,13 +21,17 @@ public class PlayerMovement : MonoBehaviour
 
     InputAction moveAction;
     InputAction sprintAction;
+    InputAction rotateAction;
 
     Vector3 moveVector;
+    float rotateInput;
+    [SerializeField] float rotateSpeed = 180f;
 
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         sprintAction = InputSystem.actions.FindAction("Sprint");
+        rotateAction = InputSystem.actions.FindAction("Rotate");
         currentStamina = maxStamina;
         if(staminaSlider != null)
         {
@@ -39,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         StaminaBar();
+        OnRotate();
     }
 
     void StaminaBar()
@@ -72,15 +78,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void Sprint()
+    void OnRotate()
     {
-        moveVector = moveAction.ReadValue<Vector2>();
-
-        transform.position += moveVector * sprintSpeed * Time.deltaTime;
+        rotateInput = rotateAction.ReadValue<float>();
+        transform.Rotate(Vector3.forward * rotateInput * rotateSpeed * Time.deltaTime);
     }
 
     void OnAttack(InputValue value)
     {
-        Instantiate(bullet, gun.position, transform.rotation);
+        Instantiate(bullet, gun.position, gun.rotation);
     }
 }

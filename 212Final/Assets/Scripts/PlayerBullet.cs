@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 20f;
+    [SerializeField] int pointsforEnemyKill = 50;
     float xSpeed;
     Rigidbody2D bulletRb;
 
@@ -11,18 +12,21 @@ public class PlayerBullet : MonoBehaviour
     {
         bulletRb = GetComponent<Rigidbody2D>();
         player = FindFirstObjectByType<PlayerMovement>();
-        xSpeed = player.transform.localScale.x * bulletSpeed;
+        bulletRb.linearVelocity = transform.up * bulletSpeed;
+        Debug.Log("Bullet velocity: " + bulletRb.linearVelocity);
     }
 
     void Update()
     {
-        bulletRb.linearVelocity = new Vector2(0f, xSpeed);
+        bulletRb.linearVelocity = transform.up * bulletSpeed;
+        bulletRb.transform.rotation = transform.rotation;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
+            FindFirstObjectByType<GameSession>().AddToScore(pointsforEnemyKill);
             Destroy(other.gameObject); 
         }
         Destroy(gameObject);
