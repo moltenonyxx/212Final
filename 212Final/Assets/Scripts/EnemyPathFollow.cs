@@ -17,7 +17,6 @@ public class EnemyPathFollow : MonoBehaviour
     void Update()
     {
         FollowPath();
-        Debug.Log(waypointIndex);
     }
 
     void FollowPath()
