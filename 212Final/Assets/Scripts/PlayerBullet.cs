@@ -13,7 +13,7 @@ public class PlayerBullet : MonoBehaviour
         bulletRb = GetComponent<Rigidbody2D>();
         player = FindFirstObjectByType<PlayerMovement>();
         bulletRb.linearVelocity = transform.up * bulletSpeed;
-        Debug.Log("Bullet velocity: " + bulletRb.linearVelocity);
+        
     }
 
     void Update()
