@@ -15,6 +15,7 @@ public class EnemyCounter : MonoBehaviour
     {
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         mainMenu = FindFirstObjectByType<MainMenu>();
+        
     }
     void Update()
     {
@@ -48,13 +49,13 @@ public class EnemyCounter : MonoBehaviour
     {
         waveCompleteText.gameObject.SetActive(true);
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
         {
             waveCompleteText.enabled = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
 
             waveCompleteText.enabled = false;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
         waveCompleteText.gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
