@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - UI
   - Player
   - Enemies
-  - 
+  - Background
   - 
   - 
   - 
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 469099471
+    locked: 0
+  - name: Background
+    uniqueID: 3881522603
     locked: 0
   m_RenderingLayers:
   - Default

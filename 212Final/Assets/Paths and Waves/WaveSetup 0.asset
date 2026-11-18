@@ -16,6 +16,6 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4419110937260678185, guid: 7506024a0241a004aa43614f941eb4b9, type: 3}
   enemyMoveSpeed: 5
-  timeBetweenEnemySpawns: 1
+  timeBetweenEnemySpawns: 0
   enemySpawnVarience: 1
   minSpawnTime: 0.2
